@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frank Sports Jingles & DJ Drops Maker | Order & Pay with MTN / Airtel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- New font pairing: Syne (headings) + Plus Jakarta Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #07070c;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #f0f0ff;
+      line-height: 1.5;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #12121a; }
+    ::-webkit-scrollbar-thumb { background: #5f5fff; border-radius: 10px; }
+
+    .app-wrapper { max-width: 1440px; margin: 0 auto; width: 100%; }
+
+    /* Header */
+    .top-bar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(120, 120, 255, 0.2);
+    }
+    .logo-area h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: 3px;
+      background: linear-gradient(135deg, #c0c0ff, #7a7aff, #4a4aff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      text-shadow: 0 0 30px rgba(90, 90, 255, 0.5); line-height: 1.2;
+    }
+    .logo-area .sub {
+      font-size: 0.8rem; color: #8888bb; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;
+      font-weight: 600;
+    }
+    .header-right { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+    .contact-chip {
+      background: #14141f; border: 1px solid #2f2f5a; border-radius: 60px;
+      padding: 0.65rem 1.5rem; display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.9rem; color: #bbbbee; box-shadow: 0 0 20px rgba(80, 80, 200, 0.2);
+      backdrop-filter: blur(4px); transition: 0.2s; cursor: pointer;
+    }
+    .contact-chip i { color: #7f7fff; font-size: 1.2rem; }
+    .contact-chip a {
+      color: #ccccff; text-decoration: none; font-weight: 500; letter-spacing: 0.3px;
+      border-bottom: 1px dashed #5f5faa;
+    }
+    .contact-chip a:hover { color: white; border-bottom-color: #9f9fff; }
+
+    .admin-btn {
+      background: #1a1a2e; border: 1px solid #3a3a6a; border-radius: 60px;
+      padding: 0.65rem 1.3rem; font-size: 0.8rem; font-weight: 700; color: #9f9fdd;
+      cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .admin-btn:hover { background: #2a2a4a; border-color: #7a7aff; color: white; }
+
+    /* Store grid */
+    .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-bottom: 2rem; }
+    @media (max-width: 950px) { .store-grid { grid-template-columns: 1fr; } }
+
+    /* Cards */
+    .card {
+      background: rgba(16, 16, 28, 0.85); backdrop-filter: blur(10px);
+      border: 1px solid #2b2b4a; border-radius: 32px; padding: 1.8rem 2rem;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(80, 80, 200, 0.15);
+      transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column;
+    }
+    .card:hover { border-color: #5b5b9f; transform: translateY(-3px); }
+    .card-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem;
+      letter-spacing: 1px; color: #d0d0ff; margin-bottom: 1.5rem;
+      border-left: 4px solid #6a6aff; padding-left: 1rem;
+    }
+    .card-title i { color: #6a6aff; font-size: 1.4rem; }
+
+    .price-display {
+      font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; color: white;
+      margin-bottom: 0.2rem; letter-spacing: 2px; text-shadow: 0 0 30px rgba(106, 106, 255, 0.5);
+    }
+    .price-display small { font-size: 1.1rem; font-weight: 500; color: #9f9fdd; letter-spacing: 1px; }
+    .price-sub { font-size: 0.85rem; color: #9f9fdd; margin-bottom: 1.5rem; letter-spacing: 0.5px; }
+
+    .feature-list { list-style: none; margin: 1.5rem 0; flex-grow: 1; }
+    .feature-list li {
+      display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0;
+      font-size: 0.9rem; color: #bbbbee; border-bottom: 1px solid rgba(90, 90, 150, 0.15);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list i { color: #6aff6a; font-size: 1rem; width: 20px; text-align: center; }
+
+    .btn-buy {
+      border: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      padding: 1.2rem 1.8rem; border-radius: 40px; font-size: 1.05rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+      transition: 0.2s; letter-spacing: 0.8px;
+      background: linear-gradient(145deg, #5a5aff, #3a3ac0); color: white;
+      box-shadow: 0 10px 25px -5px #3a3aff, 0 0 20px #5a5aff50;
+      border: 1.5px solid #7a7aff; margin-top: 1rem; width: 100%;
+    }
+    .btn-buy:hover {
+      background: linear-gradient(145deg, #6a6aff, #4a4ad0);
+      box-shadow: 0 10px 30px 0 #4a4aff, 0 0 30px #6a6aff; transform: scale(1.01);
+    }
+    .btn-buy i { font-size: 1.2rem; }
+    .btn-buy.jingle {
+      background: linear-gradient(145deg, #ff6a6a, #c03a3a);
+      box-shadow: 0 10px 25px -5px #ff3a3a, 0 0 20px #ff5a5a50;
+      border-color: #ff7a7a;
+    }
+    .btn-buy.jingle:hover {
+      background: linear-gradient(145deg, #ff7a7a, #d04a4a);
+      box-shadow: 0 10px 30px 0 #ff4a4a, 0 0 30px #ff6a6a;
+    }
+
+    .badge-popular {
+      display: inline-block; background: #ffd966; color: #07070c;
+      font-size: 0.65rem; font-weight: 800; padding: 4px 12px; border-radius: 30px;
+      letter-spacing: 1px; margin-left: 10px; vertical-align: middle;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Payment info */
+    .payment-banner {
+      background: #0d0d1a; border-radius: 18px; padding: 1rem 1.2rem;
+      margin: 1.2rem 0 0 0; border: 1px solid #2a2a4a;
+    }
+    .pay-row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.82rem; color: #b3b3ff; padding: 0.35rem 0;
+    }
+    .pay-row i { width: 22px; text-align: center; font-size: 1.05rem; }
+    .pay-row.mtn i { color: #ffd966; }
+    .pay-row.airtel i { color: #ff6a6a; }
+    .pay-number { font-weight: 800; color: #ffffff; letter-spacing: 0.8px; font-size: 0.95rem; }
+    .pay-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #8a8acc; font-weight: 700; }
+
+    /* Footer */
+    .footer-note {
+      margin-top: 2.5rem; text-align: center; font-size: 0.8rem; color: #6a6a9a;
+      border-top: 1px solid #1e1e36; padding-top: 1.5rem;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+    }
+    .footer-note i { color: #6a6aff; }
+    .footer-note a { color: #b3b3ff; text-decoration: none; border-bottom: 1px dashed #4f4f8f; }
+
+    .small-note { font-size: 0.7rem; color: #6a6a9a; margin-top: 0.8rem; text-align: center; }
+    .ugx-highlight { color: #ffd966; font-weight: 700; }
+
+    .copy-btn {
+      background: #1e1e33; border: 1px solid #4a4a7a; color: #ccc;
+      border-radius: 20px; padding: 0.2rem 0.7rem; font-size: 0.65rem; font-weight: 700;
+      cursor: pointer; transition: 0.15s; margin-left: auto; letter-spacing: 0.5px;
+    }
+    .copy-btn:hover { background: #6a6aff; color: white; border-color: #8a8aff; }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(4, 4, 10, 0.88);
+      backdrop-filter: blur(8px); z-index: 1000; align-items: flex-start; justify-content: center;
+      padding: 2rem 1.5rem; overflow-y: auto;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-box {
+      background: #10101c; border: 1px solid #3a3a6a; border-radius: 32px;
+      max-width: 680px; width: 100%; padding: 2.2rem 2.4rem;
+      box-shadow: 0 30px 80px -20px #000, 0 0 50px #4a4aff33;
+      position: relative; margin: auto;
+      animation: modalIn 0.25s ease-out;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(25px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      background: #1e1e33; border: 1px solid #3a3a6a; color: #bbb;
+      width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: 0.2s; z-index: 2;
+    }
+    .modal-close:hover { background: #ff4a4a; color: white; border-color: #ff7a7a; }
+
+    .modal-title {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+      color: #e0e0ff; margin-bottom: 0.4rem; letter-spacing: 1px;
+      padding-right: 2.5rem;
+    }
+    .modal-sub { font-size: 0.9rem; color: #9f9fdd; margin-bottom: 1.6rem; }
+
+    .checkout-step {
+      background: #0a0a14; border: 1px solid #26264a; border-radius: 20px;
+      padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+    }
+    .checkout-step h4 {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+      color: #8a8acc; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 8px;
+    }
+    .checkout-step h4 i { color: #6a6aff; }
+
+    .form-field { margin-bottom: 1rem; }
+    .form-field label {
+      display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: #9f9fdd; margin-bottom: 0.35rem;
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%; background: #0b0b16; border: 1.5px solid #2f2f55;
+      border-radius: 14px; padding: 0.75rem 1rem; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem; color: #efefff; outline: none; transition: 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: #6a6aff; box-shadow: 0 0 0 3px rgba(106, 106, 255, 0.2);
+    }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: #5f5f8f; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+
+    .pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .pay-option {
+      background: #0d0d1a; border: 2px solid #2f2f55; border-radius: 18px;
+      padding: 1rem 0.8rem; text-align: center; cursor: pointer; transition: 0.2s;
+      user-select: none;
+    }
+    .pay-option:hover { border-color: #5a5a9a; }
+    .pay-option.selected { border-color: #6a6aff; background: #181833; box-shadow: 0 0 20px #6a6aff44; }
+    .pay-option .pay-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .pay-option.mtn .pay-icon { color: #ffd966; }
+    .pay-option.airtel .pay-icon { color: #ff6a6a; }
+    .pay-option .pay-name { font-weight: 800; font-size: 0.9rem; color: white; }
+    .pay-option .pay-number { font-size: 0.8rem; color: #bbbbee; letter-spacing: 0.8px; margin-top: 2px; }
+    .pay-option .pay-tag { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #8a8acc; margin-top: 4px; }
+
+    .order-summary {
+      background: linear-gradient(145deg, #15152a, #0d0d1a);
+      border: 1px solid #3a3a6a; border-radius: 18px; padding: 1.1rem 1.3rem;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.4rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .order-summary .label { font-size: 0.8rem; color: #9f9fdd; }
+    .order-summary .value { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffd966; }
+
+    .btn-confirm {
+      width: 100%; border: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      padding: 1.1rem; border-radius: 40px; font-size: 1rem; cursor: pointer;
+      background: linear-gradient(145deg, #3aff8a, #1fa85a); color: #04140a;
+      letter-spacing: 0.8px; display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+      box-shadow: 0 10px 25px -5px #1fa85a, 0 0 20px #3aff8a44; transition: 0.2s;
+      text-decoration: none;
+    }
+    .btn-confirm:hover { background: linear-gradient(145deg, #5affaa, #2fc86a); transform: scale(1.01); }
+    .btn-confirm:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .checkout-note {
+      font-size: 0.72rem; color: #7a7aaf; text-align: center; margin-top: 1rem; line-height: 1.6;
+    }
+
+    /* Success receipt */
+    .receipt { text-align: center; padding: 1rem 0; }
+    .receipt .success-icon {
+      font-size: 3.5rem; color: #3aff8a; margin-bottom: 1rem;
+      animation: pop 0.4s ease-out;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.3); opacity: 0; }
+      70% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .receipt h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; color: white; margin-bottom: 0.5rem; }
+    .receipt p { font-size: 0.9rem; color: #bbbbee; margin-bottom: 0.4rem; }
+    .receipt .ref-code {
+      background: #0a0a14; border: 1px dashed #4a4a8a; border-radius: 14px;
+      padding: 0.8rem 1rem; margin: 1.2rem 0; font-family: 'Syne', sans-serif;
+      color: #ffd966; letter-spacing: 2px; font-weight: 700; font-size: 1rem;
+    }
+    .receipt .next-steps {
+      text-align: left; background: #0d0d1a; border-radius: 16px;
+      padding: 1rem 1.2rem; font-size: 0.82rem; color: #bbbbee; margin-top: 1.2rem;
+    }
+    .receipt .next-steps ol { margin-left: 1.2rem; padding-left: 0.3rem; }
+    .receipt .next-steps li { margin-bottom: 0.5rem; }
+    .btn-done {
+      margin-top: 0.6rem; width: 100%; border: none; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; padding: 1rem; border-radius: 40px; font-size: 1rem; cursor: pointer;
+      background: #1e1e33; border: 1.5px solid #4a4a7a; color: #cdcdff; transition: 0.2s;
+    }
+    .btn-done:hover { background: #2a2a4a; border-color: #8a8aff; color: white; }
+
+    /* Toast */
+    .toast-message {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: #2a2a55; backdrop-filter: blur(15px); border: 1px solid #7a7aff;
+      color: white; padding: 0.8rem 2.2rem; border-radius: 60px; font-weight: 600;
+      box-shadow: 0 10px 35px #000000aa; z-index: 2000; opacity: 0;
+      transition: opacity 0.3s; pointer-events: none; letter-spacing: 0.5px;
+      font-size: 0.9rem; max-width: 90vw; text-align: center;
+    }
+    .toast-message.show { opacity: 1; }
+
+    .card.selected-product { border-color: #3aff8a; box-shadow: 0 0 40px #3aff8a33; }
+
+    /* Admin dashboard */
+    .admin-header {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .admin-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .stat-box {
+      background: #0d0d1a; border: 1px solid #2f2f55; border-radius: 18px;
+      padding: 1rem; text-align: center;
+    }
+    .stat-box .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #8a8acc; }
+    .stat-box .stat-value { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffd966; margin-top: 4px; }
+
+    .orders-list { display: flex; flex-direction: column; gap: 0.8rem; }
+    .order-item {
+      background: #0a0a14; border: 1px solid #26264a; border-radius: 16px;
+      padding: 1rem 1.2rem; transition: 0.2s;
+    }
+    .order-item:hover { border-color: #5a5a9a; }
+    .order-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
+    .order-ref { font-family: 'Syne', sans-serif; font-weight: 700; color: #ffd966; font-size: 0.9rem; }
+    .order-product { font-weight: 700; color: #ddd; font-size: 0.9rem; }
+    .order-detail { font-size: 0.75rem; color: #8a8acc; }
+    .order-amount { font-weight: 800; color: #3aff8a; font-family: 'Syne', sans-serif; font-size: 0.9rem; }
+    .order-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .order-actions button {
+      background: #1e1e33; border: 1px solid #4a4a7a; color: #ccc;
+      border-radius: 20px; padding: 0.35rem 0.9rem; font-size: 0.7rem; font-weight: 700;
+      cursor: pointer; transition: 0.2s; letter-spacing: 0.5px;
+    }
+    .order-actions button:hover { background: #6a6aff; color: white; border-color: #8a8aff; }
+    .order-actions .btn-del:hover { background: #ff4a4a; border-color: #ff7a7a; }
+    .empty-state {
+      text-align: center; padding: 3rem 1rem; color: #6a6a9a;
+    }
+    .empty-state i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
+
+    /* hidden whatsapp link */
+    .hidden-wa {
+      color: transparent;
+      text-decoration: none;
+      font-size: 0;
+    }
+    .hidden-wa i {
+      color: #6aff6a;
+      font-size: 1.2rem;
+      margin-left: 6px;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+    .hidden-wa:hover i {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <div class="top-bar">
+      <div class="logo-area">
+        <h1>FRANK SPORTS</h1>
+        <div class="sub">JINGLES & DJ DROPS MAKER · UGX STORE</div>
+      </div>
+      <div class="header-right">
+        <button class="admin-btn" id="adminBtn"><i class="fas fa-chart-simple"></i> MY ORDERS</button>
+        <div class="contact-chip" id="contactChip">
+          <i class="fas fa-envelope"></i>
+          <span>Frankcasemiro548@gmail.com</span>
+          <a href="mailto:Frankcasemiro548@gmail.com" target="_blank"><i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i></a>
+        </div>
+        <!-- invisible WhatsApp link (number not shown) -->
+        <a href="https://wa.me/256769006720" target="_blank" rel="noopener" class="hidden-wa" aria-label="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Store Grid -->
+    <div class="store-grid">
+      <!-- DJ DROPS -->
+      <div class="card" id="djDropCard">
+        <div class="card-title">
+          <i class="fas fa-microphone-alt"></i> FRANK SPORTS DJ DROPS
+          <span class="badge-popular">POPULAR</span>
+        </div>
+        <div class="price-display">15,000 <small>UGX</small></div>
+        <div class="price-sub">per drop · instant delivery</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Custom DJ name & phrase</li>
+          <li><i class="fas fa-check-circle"></i> Pro voice styles (deep male, female, robotic)</li>
+          <li><i class="fas fa-check-circle"></i> Background music style of your choice</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Premium: 1–2 minutes</strong> · Demo: 1–5 seconds</li>
+          <li><i class="fas fa-check-circle"></i> Commercial license included</li>
+          <li><i class="fas fa-check-circle"></i> High-quality WAV download</li>
+        </ul>
+        <button class="btn-buy" data-product="dj_drop" data-name="FRANK SPORTS DJ DROP" data-price="15000">
+          <i class="fas fa-shopping-cart"></i> BUY DJ DROP — 15,000 UGX
+        </button>
+        <div class="payment-banner">
+          <div class="pay-row mtn">
+            <i class="fas fa-mobile-screen"></i>
+            <span class="pay-label">MTN MoMo</span>
+            <span class="pay-number">0769006720</span>
+            <button class="copy-btn" data-number="0769006720">COPY</button>
+          </div>
+          <div class="pay-row airtel">
+            <i class="fas fa-mobile-screen"></i>
+            <span class="pay-label">Airtel Money</span>
+            <span class="pay-number">0756887183</span>
+            <button class="copy-btn" data-number="0756887183">COPY</button>
+          </div>
+        </div>
+        <div class="small-note"><i class="fas fa-bolt"></i> Send payment, then email your DJ name & requirements</div>
+      </div>
+
+      <!-- JINGLES -->
+      <div class="card" id="jingleCard">
+        <div class="card-title">
+          <i class="fas fa-star"></i> FRANK SPORTS JINGLES
+          <span class="badge-popular" style="background:#ff7a7a; color:white;">PREMIUM</span>
+        </div>
+        <div class="price-display" style="color: #ffaaaa;">20,000 <small>UGX</small></div>
+        <div class="price-sub">per jingle · instant delivery</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Radio-ready jingle production</li>
+          <li><i class="fas fa-check-circle"></i> Custom station ID / podcast intro</li>
+          <li><i class="fas fa-check-circle"></i> All voice styles + effects</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Premium: 1–2 minutes</strong> · Demo: 1–5 seconds</li>
+          <li><i class="fas fa-check-circle"></i> Commercial broadcast license</li>
+          <li><i class="fas fa-check-circle"></i> High-quality WAV download</li>
+        </ul>
+        <button class="btn-buy jingle" data-product="jingle" data-name="FRANK SPORTS JINGLE" data-price="20000">
+          <i class="fas fa-shopping-cart"></i> BUY JINGLE — 20,000 UGX
+        </button>
+        <div class="payment-banner">
+          <div class="pay-row mtn">
+            <i class="fas fa-mobile-screen"></i>
+            <span class="pay-label">MTN MoMo</span>
+            <span class="pay-number">0769006720</span>
+            <button class="copy-btn" data-number="0769006720">COPY</button>
+          </div>
+          <div class="pay-row airtel">
+            <i class="fas fa-mobile-screen"></i>
+            <span class="pay-label">Airtel Money</span>
+            <span class="pay-number">0756887183</span>
+            <button class="copy-btn" data-number="0756887183">COPY</button>
+          </div>
+        </div>
+        <div class="small-note"><i class="fas fa-bolt"></i> Send payment, then email your station/podcast details</div>
+      </div>
+    </div>
+
+    <!-- Extra info -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 1rem 0;">
+      <div style="background: #0d0d1a; border-radius: 18px; padding: 0.8rem 1.8rem; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #b3b3ff; border: 1px solid #2a2a4a;">
+        <i class="fas fa-boxes" style="color: #ffd966;"></i>
+        <span>Bulk order? 5+ drops = <span class="ugx-highlight">10% discount</span></span>
+      </div>
+      <div style="background: #0d0d1a; border-radius: 18px; padding: 0.8rem 1.8rem; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #b3b3ff; border: 1px solid #2a2a4a;">
+        <i class="fas fa-gem" style="color: #ffd966;"></i>
+        <span>All licenses included · No hidden fees</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <span><i class="fas fa-globe"></i> Works with Google Sites, HTML, all DAWs</span>
+      <span><i class="fas fa-copyright"></i> FRANK SPORTS — all rights reserved</span>
+      <span><i class="fas fa-bolt"></i> Instant download after purchase</span>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-box" id="modalContent"></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast-message">🔥 Ready!</div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // ============ CONFIG ============
+      const CONFIG = {
+        MTN_NUMBER: '0769006720',
+        AIRTEL_NUMBER: '0756887183',
+        EMAIL: 'Frankcasemiro548@gmail.com',
+        WHATSAPP: '256769006720',
+        STORAGE_KEY: 'wigman_orders_v2'
+      };
+
+      // ============ STATE ============
+      let currentProduct = null;
+
+      // ============ DOM ============
+      const toast = document.getElementById('toast');
+      const checkoutModal = document.getElementById('checkoutModal');
+      const modalContent = document.getElementById('modalContent');
+      const djDropCard = document.getElementById('djDropCard');
+      const jingleCard = document.getElementById('jingleCard');
+      const adminBtn = document.getElementById('adminBtn');
+      const contactChip = document.getElementById('contactChip');
+
+      // ============ TOAST ============
+      function showToast(msg, isGood = true) {
+        toast.textContent = msg;
+        toast.style.background = isGood ? '#2a2a55' : '#5a2a2a';
+        toast.style.borderColor = isGood ? '#7a7aff' : '#ff6a6a';
+        toast.classList.add('show');
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => toast.classList.remove('show'), 4500);
+      }
+
+      // ============ COPY ============
+      function copyText(text, btnEl) {
+        const done = () => {
+          showToast('📋 Copied: ' + text, true);
+          if (btnEl) {
+            const orig = btnEl.textContent;
+            btnEl.textContent = 'COPIED';
+            setTimeout(() => { btnEl.textContent = orig; }, 1500);
+          }
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, btnEl));
+        } else {
+          fallbackCopy(text, btnEl);
+        }
+      }
+
+      function fallbackCopy(text, btnEl) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          if (btnEl) {
+            const orig = btnEl.textContent;
+            btnEl.textContent = 'COPIED';
+            setTimeout(() => { btnEl.textContent = orig; }, 1500);
+          }
+          showToast('📋 Copied: ' + text, true);
+        } catch (e) {
+          showToast('📞 ' + text, true);
+        }
+        document.body.removeChild(ta);
+      }
+
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          copyText(this.dataset.number, this);
+        });
+      });
+
+      // ============ STORAGE HELPERS ============
+      function getOrders() {
+        try {
+          return JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEY) || '[]');
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveOrder(order) {
+        try {
+          const orders = getOrders();
+          orders.unshift(order);
+          localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(orders));
+          return true;
+        } catch (e) {
+          console.warn('Storage failed:', e);
+          return false;
+        }
+      }
+
+      function deleteOrder(ref) {
+        try {
+          const orders = getOrders().filter(o => o.ref !== ref);
+          localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(orders));
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function updateOrderStatus(ref, newStatus) {
+        try {
+          const orders = getOrders();
+          const idx = orders.findIndex(o => o.ref === ref);
+          if (idx >= 0) {
+            orders[idx].status = newStatus;
+            localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(orders));
+            return true;
+          }
+          return false;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      // ============ MODAL OPEN/CLOSE ============
+      function openModal(html) {
+        modalContent.innerHTML = html;
+        checkoutModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        checkoutModal.scrollTop = 0;
+      }
+
+      function closeModal() {
+        checkoutModal.classList.remove('active');
+        document.body.style.overflow = '';
+        djDropCard.classList.remove('selected-product');
+        jingleCard.classList.remove('selected-product');
+      }
+
+      checkoutModal.addEventListener('click', function(e) {
+        if (e.target === checkoutModal) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && checkoutModal.classList.contains('active')) closeModal();
+      });
+
+      // ============ OPEN CHECKOUT ============
+      function openCheckout(product) {
+        currentProduct = product;
+        renderCheckoutForm();
+
+        djDropCard.classList.remove('selected-product');
+        jingleCard.classList.remove('selected-product');
+        if (product.type === 'dj_drop') djDropCard.classList.add('selected-product');
+        else jingleCard.classList.add('selected-product');
+      }
+
+      // ============ RENDER CHECKOUT FORM ============
+      function renderCheckoutForm() {
+        const p = currentProduct;
+        const isJingle = p.type === 'jingle';
+        const accent = isJingle ? '#ff7a7a' : '#6a6aff';
+
+        // Voice styles - all types included
+        const voiceOptions = `
+          <option value="deep_male">Deep Male</option>
+          <option value="female_energetic">Female Energetic</option>
+          <option value="robotic">Robotic</option>
+          <option value="whisper">Whisper</option>
+          <option value="kid">Kid / Fun</option>
+          <option value="radio_host">Radio Host / Smooth</option>
+          <option value="hype">Hype MC</option>
+          <option value="narrator">Narrator / Cinematic</option>
+          <option value="android">Android / FX</option>
+        `;
+
+        // Duration options - premium 1-2 min, demo 1-5 sec
+        const lengthOptions = `
+          <optgroup label="Demo (1–5 seconds)">
+            <option value="1">1 sec</option>
+            <option value="2">2 sec</option>
+            <option value="3" selected>3 sec</option>
+            <option value="4">4 sec</option>
+            <option value="5">5 sec</option>
+          </optgroup>
+          <optgroup label="Premium (1–2 minutes)">
+            <option value="60">1 minute</option>
+            <option value="90">1.5 minutes</option>
+            <option value="120">2 minutes</option>
+          </optgroup>
+        `;
+
+        const html = `
+          <button class="modal-close" id="closeModalBtn" aria-label="Close"><i class="fas fa-times"></i></button>
+          <div class="modal-title">
+            <i class="fas ${isJingle ? 'fa-star' : 'fa-microphone-alt'}" style="color:${accent}; margin-right:10px;"></i>
+            ${p.name}
+          </div>
+          <div class="modal-sub">Complete your order · Pay with MTN MoMo or Airtel Money</div>
+
+          <div class="checkout-step">
+            <h4><i class="fas fa-user"></i> 1. Your Details</h4>
+            <div class="two-col">
+              <div class="form-field">
+                <label>Full Name</label>
+                <input type="text" id="custName" placeholder="e.g. John Doe">
+              </div>
+              <div class="form-field">
+                <label>Phone Number</label>
+                <input type="tel" id="custPhone" placeholder="e.g. 0769006720">
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Email (for delivery)</label>
+              <input type="email" id="custEmail" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h4><i class="fas fa-sliders"></i> 2. ${isJingle ? 'Jingle' : 'Drop'} Details</h4>
+            <div class="form-field">
+              <label>DJ / Artist / Station Name</label>
+              <input type="text" id="orderDjName" placeholder="e.g. DJ FRANK">
+            </div>
+            <div class="two-col">
+              <div class="form-field">
+                <label>Voice Style</label>
+                <select id="orderVoice">
+                  ${voiceOptions}
+                </select>
+              </div>
+              <div class="form-field">
+                <label>Length</label>
+                <select id="orderLength">
+                  ${lengthOptions}
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Custom Phrase / Script (optional)</label>
+              <textarea id="orderPhrase" rows="2" placeholder="${isJingle ? 'e.g. You are listening to Frank Sports Radio' : 'e.g. Frank Sports in the mix!'}"></textarea>
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h4><i class="fas fa-mobile-screen"></i> 3. Pay With</h4>
+            <div class="pay-options" id="payOptions">
+              <div class="pay-option mtn" data-method="mtn">
+                <div class="pay-icon"><i class="fas fa-mobile-screen"></i></div>
+                <div class="pay-name">MTN MoMo</div>
+                <div class="pay-number">${CONFIG.MTN_NUMBER}</div>
+                <div class="pay-tag">Tap to select</div>
+              </div>
+              <div class="pay-option airtel" data-method="airtel">
+                <div class="pay-icon"><i class="fas fa-mobile-screen"></i></div>
+                <div class="pay-name">Airtel Money</div>
+                <div class="pay-number">${CONFIG.AIRTEL_NUMBER}</div>
+                <div class="pay-tag">Tap to select</div>
+              </div>
+            </div>
+            <div id="paymentHint" style="font-size:0.75rem; color:#8a8acc; margin-top:0.8rem; text-align:center; min-height:18px;">
+              Select a payment method to continue
+            </div>
+          </div>
+
+          <div class="order-summary">
+            <div>
+              <div class="label">Total to pay</div>
+              <div class="value">${p.price.toLocaleString()} UGX</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="label">Product</div>
+              <div style="font-weight:700; color:#ddd; font-size:0.9rem;">${p.name}</div>
+            </div>
+          </div>
+
+          <button class="btn-confirm" id="confirmOrderBtn" disabled>
+            <i class="fas fa-lock"></i> SELECT PAYMENT METHOD
+          </button>
+
+          <div class="checkout-note">
+            <i class="fas fa-shield-halved" style="color:#6aff6a;"></i>
+            After payment, send proof to <strong style="color:#ffd966;">${CONFIG.EMAIL}</strong> with your reference code.
+          </div>
+        `;
+
+        openModal(html);
+        attachCheckoutListeners();
+      }
+
+      // ============ ATTACH CHECKOUT LISTENERS ============
+      function attachCheckoutListeners() {
+        const closeBtn = document.getElementById('closeModalBtn');
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+        let selectedMethod = null;
+        const payOptions = document.querySelectorAll('.pay-option');
+        const paymentHint = document.getElementById('paymentHint');
+        const confirmBtn = document.getElementById('confirmOrderBtn');
+
+        payOptions.forEach(opt => {
+          opt.addEventListener('click', function() {
+            payOptions.forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedMethod = this.dataset.method;
+
+            const number = selectedMethod === 'mtn' ? CONFIG.MTN_NUMBER : CONFIG.AIRTEL_NUMBER;
+            const name = selectedMethod === 'mtn' ? 'MTN MoMo' : 'Airtel Money';
+
+            paymentHint.innerHTML = `
+              <i class="fas fa-check-circle" style="color:#6aff6a;"></i>
+              Pay <strong style="color:#ffd966;">${currentProduct.price.toLocaleString()} UGX</strong> to <strong>${name}</strong>:
+              <strong style="color:#fff;">${number}</strong>
+            `;
+
+            confirmBtn.disabled = false;
+            confirmBtn.innerHTML = '<i class="fas fa-check-circle"></i> CONFIRM ORDER & PAY';
+          });
+        });
+
+        confirmBtn.addEventListener('click', function() {
+          handleConfirmOrder(selectedMethod);
+        });
+      }
+
+      // ============ CONFIRM ORDER ============
+      function handleConfirmOrder(method) {
+        const name = document.getElementById('custName')?.value.trim();
+        const phone = document.getElementById('custPhone')?.value.trim();
+        const email = document.getElementById('custEmail')?.value.trim();
+        const djName = document.getElementById('orderDjName')?.value.trim();
+
+        if (!name) { showToast('⚠️ Please enter your full name', false); return; }
+        if (!phone) { showToast('⚠️ Please enter your phone number', false); return; }
+        if (!email || !email.includes('@')) { showToast('⚠️ Please enter a valid email', false); return; }
+        if (!djName) { showToast('⚠️ Please enter your DJ/station name', false); return; }
+        if (!method) { showToast('⚠️ Please select a payment method', false); return; }
+
+        const confirmBtn = document.getElementById('confirmOrderBtn');
+        confirmBtn.disabled = true;
+        confirmBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
+
+        const refCode = 'FSP-' + Date.now().toString(36).toUpperCase().slice(-6) + '-' + Math.random().toString(36).substring(2, 5).toUpperCase();
+
+        const orderData = {
+          ref: refCode,
+          product: currentProduct.name,
+          productType: currentProduct.type,
+          price: currentProduct.price,
+          method: method === 'mtn' ? 'MTN MoMo' : 'Airtel Money',
+          payNumber: method === 'mtn' ? CONFIG.MTN_NUMBER : CONFIG.AIRTEL_NUMBER,
+          customerName: name,
+          customerPhone: phone,
+          customerEmail: email,
+          djName: djName,
+          voice: document.getElementById('orderVoice')?.value || 'deep_male',
+          length: document.getElementById('orderLength')?.value || '3',
+          phrase: document.getElementById('orderPhrase')?.value.trim() || '',
+          status: 'pending_payment',
+          date: new Date().toISOString()
+        };
+
+        setTimeout(() => {
+          saveOrder(orderData);
+          renderSuccessReceipt(orderData);
+        }, 800);
+      }
+
+      // ============ SUCCESS RECEIPT ============
+      function renderSuccessReceipt(order) {
+        const isJingle = order.productType === 'jingle';
+        const accent = isJingle ? '#ff7a7a' : '#6a6aff';
+
+        // Length display
+        let lengthDisplay = '';
+        const len = parseInt(order.length, 10);
+        if (len >= 60) {
+          lengthDisplay = (len / 60).toFixed(1).replace('.0', '') + ' minute' + (len >= 120 ? 's' : '');
+        } else {
+          lengthDisplay = len + ' second' + (len !== 1 ? 's' : '');
+        }
+
+        const mailSubject = encodeURIComponent(`Payment Proof: ${order.ref} - ${order.product}`);
+        const mailBody = encodeURIComponent(
+          `Hello Frank Sports,\n\nI have sent payment for my order.\n\n` +
+          `REFERENCE: ${order.ref}\n` +
+          `PRODUCT: ${order.product}\n` +
+          `AMOUNT: ${order.price.toLocaleString()} UGX\n` +
+          `PAYMENT METHOD: ${order.method}\n` +
+          `PAID TO: ${order.payNumber}\n\n` +
+          `MY DETAILS:\n` +
+          `Name: ${order.customerName}\n` +
+          `Phone: ${order.customerPhone}\n` +
+          `Email: ${order.customerEmail}\n` +
+          `DJ/Station: ${order.djName}\n` +
+          `Voice: ${order.voice}\n` +
+          `Length: ${lengthDisplay}\n` +
+          `Phrase: ${order.phrase || '(standard)'}\n\n` +
+          `Please confirm and deliver my drop to ${order.customerEmail}.\n\n` +
+          `Thank you!`
+        );
+        const mailtoLink = `mailto:${CONFIG.EMAIL}?subject=${mailSubject}&body=${mailBody}`;
+
+        const waText = encodeURIComponent(
+          `*FRANK SPORTS ORDER*\n` +
+          `Ref: ${order.ref}\n` +
+          `Product: ${order.product}\n` +
+          `Amount: ${order.price.toLocaleString()} UGX\n` +
+          `Method: ${order.method} (${order.payNumber})\n` +
+          `Name: ${order.customerName}\n` +
+          `DJ: ${order.djName}\n` +
+          `Email: ${order.customerEmail}`
+        );
+        const waLink = `https://wa.me/${CONFIG.WHATSAPP}?text=${waText}`;
+
+        const html = `
+          <button class="modal-close" id="closeModalBtn" aria-label="Close"><i class="fas fa-times"></i></button>
+          <div class="receipt">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Order Created!</h3>
+            <p>Your order has been logged. Complete payment to finalize.</p>
+
+            <div class="ref-code">
+              <i class="fas fa-hashtag" style="font-size:0.8rem; opacity:0.7;"></i> ${order.ref}
+            </div>
+
+            <div class="next-steps">
+              <strong style="color:${accent}; display:block; margin-bottom:8px;">
+                <i class="fas fa-list-check"></i> NEXT STEPS:
+              </strong>
+              <ol>
+                <li>Send <strong style="color:#ffd966;">${order.price.toLocaleString()} UGX</strong> via <strong>${order.method}</strong> to <strong style="color:#fff;">${order.payNumber}</strong></li>
+                <li>Click a button below to send payment proof with your reference</li>
+                <li>Receive your completed ${isJingle ? 'jingle' : 'drop'} via email within minutes</li>
+              </ol>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.7rem; margin-top:1.4rem;">
+              <a href="${mailtoLink}" class="btn-confirm" style="background:linear-gradient(145deg,#5a5aff,#3a3ac0); color:white; box-shadow:0 10px 25px -5px #3a3aff;">
+                <i class="fas fa-envelope"></i> EMAIL PAYMENT PROOF
+              </a>
+              <a href="${waLink}" target="_blank" rel="noopener" class="btn-confirm" style="background:linear-gradient(145deg,#3aff8a,#1fa85a); color:#04140a;">
+                <i class="fab fa-whatsapp"></i> SEND VIA WHATSAPP
+              </a>
+              <button class="btn-done" id="doneBtn"><i class="fas fa-check"></i> DONE</button>
+            </div>
+
+            <p style="font-size:0.7rem; color:#6a6a9a; margin-top:1.2rem;">
+              <i class="fas fa-lock"></i> Reference saved. Email <strong>${CONFIG.EMAIL}</strong> if you need help.
+            </p>
+          </div>
+        `;
+
+        openModal(html);
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+        document.getElementById('doneBtn').addEventListener('click', closeModal);
+      }
+
+      // ============ ADMIN DASHBOARD ============
+      function renderAdminDashboard() {
+        const orders = getOrders();
+
+        const totalRevenue = orders.reduce((sum, o) => sum + (Number(o.price) || 0), 0);
+        const djCount = orders.filter(o => o.productType === 'dj_drop').length;
+        const jingleCount = orders.filter(o => o.productType === 'jingle').length;
+        const pendingCount = orders.filter(o => o.status === 'pending_payment').length;
+
+        let ordersHtml = '';
+        if (orders.length === 0) {
+          ordersHtml = `
+            <div class="empty-state">
+              <i class="fas fa-inbox"></i>
+              <div style="font-weight:700; color:#8a8acc; margin-bottom:0.4rem;">No orders yet</div>
+              <div style="font-size:0.8rem;">Orders placed on this device will appear here.</div>
+            </div>
+          `;
+        } else {
+          ordersHtml = '<div class="orders-list">';
+          orders.forEach(o => {
+            const statusColor = o.status === 'pending_payment' ? '#ffd966' : (o.status === 'paid' ? '#3aff8a' : '#8a8acc');
+            const statusLabel = o.status === 'pending_payment' ? 'PENDING PAYMENT' : (o.status === 'paid' ? 'PAID' : 'COMPLETED');
+            // length display
+            let lenDisp = o.length;
+            const l = parseInt(o.length, 10);
+            if (l >= 60) lenDisp = (l/60).toFixed(1).replace('.0','') + ' min';
+            else lenDisp = l + 's';
+            ordersHtml += `
+              <div class="order-item">
+                <div class="order-row">
+                  <span class="order-ref">#${o.ref}</span>
+                  <span class="order-amount">${Number(o.price).toLocaleString()} UGX</span>
+                </div>
+                <div class="order-row">
+                  <span class="order-product"><i class="fas ${o.productType === 'jingle' ? 'fa-star' : 'fa-microphone-alt'}" style="margin-right:5px; color:${o.productType === 'jingle' ? '#ff7a7a' : '#6a6aff'};"></i>${o.product}</span>
+                  <span style="font-size:0.7rem; color:${statusColor}; font-weight:700; letter-spacing:0.5px;">${statusLabel}</span>
+                </div>
+                <div class="order-detail">
+                  <i class="fas fa-user"></i> ${o.customerName} · ${o.customerPhone} · ${o.customerEmail}
+                </div>
+                <div class="order-detail">
+                  <i class="fas fa-compact-disc"></i> ${o.djName} · Voice: ${o.voice} · ${lenDisp} ${o.phrase ? '· "' + o.phrase + '"' : ''}
+                </div>
+                <div class="order-detail">
+                  <i class="fas fa-mobile-screen"></i> ${o.method} · ${o.payNumber} · ${new Date(o.date).toLocaleString()}
+                </div>
+                <div class="order-actions">
+                  <button class="btn-mark-paid" data-ref="${o.ref}"><i class="fas fa-check"></i> Mark Paid</button>
+                  <button class="btn-mark-complete" data-ref="${o.ref}"><i class="fas fa-flag-checkered"></i> Complete</button>
+                  <button class="btn-resend-email" data-ref="${o.ref}"><i class="fas fa-envelope"></i> Email</button>
+                  <button class="btn-del" data-ref="${o.ref}"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+              </div>
+            `;
+          });
+          ordersHtml += '</div>';
+        }
+
+        const html = `
+          <button class="modal-close" id="closeModalBtn" aria-label="Close"><i class="fas fa-times"></i></button>
+          <div class="admin-header">
+            <div>
+              <div class="modal-title"><i class="fas fa-chart-simple" style="color:#6a6aff; margin-right:10px;"></i>Order Dashboard</div>
+              <div class="modal-sub" style="margin-bottom:0;">All orders placed on this device</div>
+            </div>
+          </div>
+
+          <div class="admin-stats">
+            <div class="stat-box">
+              <div class="stat-label">Total Orders</div>
+              <div class="stat-value">${orders.length}</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Revenue</div>
+              <div class="stat-value">${totalRevenue.toLocaleString()} <span style="font-size:0.7rem;">UGX</span></div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">DJ Drops</div>
+              <div class="stat-value">${djCount}</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Jingles</div>
+              <div class="stat-value">${jingleCount}</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Pending</div>
+              <div class="stat-value" style="color:#ffd966;">${pendingCount}</div>
+            </div>
+          </div>
+
+          ${ordersHtml}
+
+          <div style="margin-top:1.5rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+            <button class="btn-done" id="exportBtn" style="flex:1; margin:0;"><i class="fas fa-download"></i> EXPORT CSV</button>
+            <button class="btn-done" id="clearAllBtn" style="flex:1; margin:0; color:#ff9a9a; border-color:#5a2a2a;"><i class="fas fa-trash"></i> CLEAR ALL</button>
+          </div>
+
+          <div class="checkout-note" style="margin-top:1rem;">
+            <i class="fas fa-info-circle"></i> Orders are stored in this browser. Export regularly to keep records.
+          </div>
+        `;
+
+        openModal(html);
+
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+
+        document.querySelectorAll('.btn-mark-paid').forEach(btn => {
+          btn.addEventListener('click', function() {
+            if (updateOrderStatus(this.dataset.ref, 'paid')) {
+              showToast('✅ Marked as PAID: ' + this.dataset.ref);
+              renderAdminDashboard();
+            }
+          });
+        });
+
+        document.querySelectorAll('.btn-mark-complete').forEach(btn => {
+          btn.addEventListener('click', function() {
+            if (updateOrderStatus(this.dataset.ref, 'completed')) {
+              showToast('🏁 Marked as COMPLETED: ' + this.dataset.ref);
+              renderAdminDashboard();
+            }
+          });
+        });
+
+        document.querySelectorAll('.btn-resend-email').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const ref = this.dataset.ref;
+            const orders = getOrders();
+            const order = orders.find(o => o.ref === ref);
+            if (!order) return;
+            const subject = encodeURIComponent(`Follow-up: ${order.ref} - ${order.product}`);
+            const body = encodeURIComponent(`Hello ${order.customerName},\n\nYour order ${order.ref} (${order.product}) is being processed.\n\nAmount: ${Number(order.price).toLocaleString()} UGX\nStatus: ${order.status}\n\nThank you,\nFrank Sports`);
+            window.location.href = `mailto:${order.customerEmail}?subject=${subject}&body=${body}`;
+          });
+        });
+
+        document.querySelectorAll('.btn-del').forEach(btn => {
+          btn.addEventListener('click', function() {
+            if (confirm('Delete this order permanently?')) {
+              if (deleteOrder(this.dataset.ref)) {
+                showToast('🗑️ Order deleted');
+                renderAdminDashboard();
+              }
+            }
+          });
+        });
+
+        document.getElementById('exportBtn').addEventListener('click', function() {
+          const orders = getOrders();
+          if (orders.length === 0) { showToast('No orders to export', false); return; }
+          const headers = ['Reference', 'Date', 'Product', 'Type', 'Price (UGX)', 'Status', 'Method', 'Pay Number', 'Customer', 'Phone', 'Email', 'DJ Name', 'Voice', 'Length', 'Phrase'];
+          const rows = orders.map(o => [
+            o.ref, new Date(o.date).toLocaleString(), o.product, o.productType,
+            o.price, o.status, o.method, o.payNumber, o.customerName,
+            o.customerPhone, o.customerEmail, o.djName, o.voice, o.length,
+            (o.phrase || '').replace(/"/g, '""')
+          ]);
+          const csv = [headers, ...rows].map(row => row.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
+          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `frank_sports_orders_${new Date().toISOString().slice(0,10)}.csv`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast('📥 CSV exported: ' + orders.length + ' orders');
+        });
+
+        document.getElementById('clearAllBtn').addEventListener('click', function() {
+          if (confirm('Delete ALL orders from this browser? This cannot be undone.')) {
+            localStorage.removeItem(CONFIG.STORAGE_KEY);
+            showToast('🗑️ All orders cleared');
+            renderAdminDashboard();
+          }
+        });
+      }
+
+      // ============ EVENT BINDINGS ============
+      document.querySelectorAll('.btn-buy').forEach(btn => {
+        btn.addEventListener('click', function() {
+          openCheckout({
+            type: this.dataset.product,
+            name: this.dataset.name,
+            price: parseInt(this.dataset.price, 10)
+          });
+        });
+      });
+
+      adminBtn.addEventListener('click', renderAdminDashboard);
+
+      contactChip.addEventListener('click', function(e) {
+        if (e.target.tagName !== 'A') {
+          copyText(CONFIG.EMAIL, null);
+        }
+      });
+
+      // ============ WELCOME ============
+      window.addEventListener('load', function() {
+        setTimeout(() => {
+          showToast('💡 Click BUY on any product · MTN & Airtel accepted · Real checkout', true);
+        }, 900);
+      });
+
+    })();
+  </script>
+</body>
+</html>
